@@ -18,6 +18,8 @@
   --about-bg-color: #111821;
 }
 
+
+
 /*Geral*/
 .highlight {
   color: var(--main-color);
@@ -108,7 +110,52 @@
   max-width: 20px;
 }
 
-/*About Container*/
+/*About Container
+h2 {
+  color: #5e34c0;
+  font-size: 2em;
+  font-weight: 100;
+  padding: 0 100px;
+}*/
+
+h2 span{
+
+  position: relative;
+  color: rgba(255,255,255,0.0);
+  animation: displayText 9s infinite;
+  animation-delay: calc(-3s * var(--i));
+}
+
+@keyframes displayText{
+  0% {
+    display: inline-block;
+  }
+  33.33%, 100% {
+    display: none;
+  }
+}
+h2 span::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #5e34c0;
+  overflow: hidden;
+  border-right: 4px solid ;
+  filter: drop-shadow(0 0 5px #5e34c0) drop-shadow(0 0 25px #5e34c0);
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animate {
+  0%, 10%, 100% {
+      width: 0;
+  }
+  70%, 90% {
+      width: 100%;
+  }
+}
+
 #name {
   font-size: 42px;
   margin-bottom: 15px;
@@ -117,7 +164,7 @@
 #title {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 25px;
+  margin-bottom: 5px;
 }
 
 .description {
